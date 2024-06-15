@@ -1,12 +1,6 @@
-package task1;
+package task2;
 
-import org.junit.*;
-
-import java.util.logging.Logger;
-
-
-
-
+import org.junit.Test;
 
 public class FirstTest extends BaseTests {
     //private static final Logger logger = LogManager.getLogger(FirstTest.class);
@@ -25,3 +19,12 @@ public class FirstTest extends BaseTests {
     }
 }
 
+
+/*
+1.	Перейти по ссылке: https://mospolytech.ru/
+        2. Нажать на кнопку Расписания
+3. В разделе “Расписания занятий” нажать “Смотрите на сайте”
+        4. Ввести номер группы в поле поиска
+5. Нажать на найденную группу в результатах поиска
+
+ */
