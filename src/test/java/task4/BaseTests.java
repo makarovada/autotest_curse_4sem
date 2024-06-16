@@ -1,4 +1,4 @@
-package task1;
+package task4;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,12 +20,14 @@ import java.util.Date;
 
 public class BaseTests {
     protected DriverManager driverManager = DriverManager.getInstance();
-    protected PageManager pageManager = PageManager.getInstance();
-    private static final Logger logger = LogManager.getLogger(BaseTests.class);
+    protected static PageManager pageManager = PageManager.getInstance();
+    private static final Logger logger = LogManager.getLogger(task1.BaseTests.class);
 
     @BeforeClass
     public static void beforeClass() {
         InitManager.initFramework();
+        pageManager.getFirstPage3().loadFirstPage();
+
         logger.info("Тест начат");
     }
 
@@ -55,3 +57,4 @@ public class BaseTests {
 
 
 }
+

@@ -1,4 +1,5 @@
-package task2;
+package task4;
+
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -7,6 +8,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
+import task3.BaseTests;
 
 public class FirstTest extends BaseTests {
     private static final Logger logger = LogManager.getLogger(task1.FirstTest.class);
@@ -20,18 +22,11 @@ public class FirstTest extends BaseTests {
             takeScreenshot(testName.getMethodName());
         }
     };
-
-
     @Test
-    public void test() {
-        pageManager.getFirstPage2()
-                .clickOnSchedule()
-                .clickOnLookOnWeb()
-                .SelectGroup();
+    public void test() throws InterruptedException {
+        ;
 
 
     }
 }
-
-
 

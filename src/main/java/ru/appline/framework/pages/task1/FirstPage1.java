@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class FirstPage extends BasePage {
+public class FirstPage1 extends BasePage {
 
     @FindBy(xpath = "//span[@class='ng-binding']")
     private WebElement upText;
@@ -29,25 +29,25 @@ public class FirstPage extends BasePage {
 
 
 
-    public FirstPage getUpText() {
+    public FirstPage1 getUpText() {
         Assert.assertEquals("Не тот текст", "5 of 5 remaining", upText.getText());
-        return pageManager.getFirstPage();
+        return pageManager.getFirstPage1();
     }
 
-    public FirstPage getSpanClass(int a) {
+    public FirstPage1 getSpanClass(int a) {
         Assert.assertTrue(a + " элемент списка зачеркнут", spans.get(a).isDisplayed() && spans.get(a).getAttribute("class").contains("false"));
-        return pageManager.getFirstPage();
+        return pageManager.getFirstPage1();
     }
 
-    public FirstPage isCheckboxSelected(int a) {
+    public FirstPage1 isCheckboxSelected(int a) {
         Assert.assertFalse("Чекбокс уже выбран", checkboxes.get(a).isSelected());
-        return pageManager.getFirstPage();
+        return pageManager.getFirstPage1();
     }
 
-    public FirstPage clickCheckbox(int a) {
+    public FirstPage1 clickCheckbox(int a) {
         checkboxes.get(a).click();
         Assert.assertTrue(a + " чекбокс не выбран", checkboxes.get(a).isSelected());
-        return pageManager.getFirstPage();
+        return pageManager.getFirstPage1();
     }
 
     public void addItem(String text) {
@@ -59,20 +59,20 @@ public class FirstPage extends BasePage {
         String remainingCountText = upText.getText().split(" ")[0];
         return Integer.parseInt(remainingCountText);
     }
-    public FirstPage clickAllCheckboxes() {
+    public FirstPage1 clickAllCheckboxes() {
         for (WebElement checkbox : checkboxes) {
             if (!checkbox.isSelected()) {
                 checkbox.click();
             }
         }
-        int itemCountAfter = pageManager.getFirstPage().getRemainingCount();
+        int itemCountAfter = pageManager.getFirstPage1().getRemainingCount();
         Assert.assertEquals("Отображаемое число оставшихся элементов не уменьшилось до 0!", 0, itemCountAfter);
-        return pageManager.getFirstPage();
+        return pageManager.getFirstPage1();
     }
 
 
 
-    public FirstPage addNewElement(){
+    public FirstPage1 addNewElement(){
         String newItemText = "Sixth item";
         addItem(newItemText);
         checkboxes.add(newCheckbox);
@@ -80,7 +80,7 @@ public class FirstPage extends BasePage {
         getSpanClass(spans.size()-1);
         clickCheckbox(checkboxes.size()-1);
         Assert.assertTrue("Новый чекбокс не выбран", checkboxes.get(checkboxes.size()-1).isSelected());
-        return pageManager.getFirstPage();
+        return pageManager.getFirstPage1();
     }
 
 }

@@ -1,37 +1,48 @@
 package task2;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.io.FileHandler;
 import ru.appline.framework.managers.DriverManager;
 import ru.appline.framework.managers.InitManager;
 import ru.appline.framework.managers.PageManager;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class BaseTests {
     protected DriverManager driverManager = DriverManager.getInstance();
-    protected PageManager pageManager = PageManager.getInstance();
-    // private static final Logger logger = LogManager.getLogger(BaseTests.class);
+    protected static PageManager pageManager = PageManager.getInstance();
+    private static final Logger logger = LogManager.getLogger(task1.BaseTests.class);
 
     @BeforeClass
     public static void beforeClass() {
         InitManager.initFramework();
-        //logger.info("Тест начат");
+        pageManager.getFirstPage2().loadHomePage();
+
+        logger.info("Тест начат");
     }
 
     @Before
     public void setUp() {
         driverManager.getDriver();
-        //logger.info("Driver initialized");
+        logger.info("Driver initialized");
     }
 
     @After
     public void tearDown() {
         InitManager.quitFramework();
-        //logger.info("Framework quit");
+        logger.info("Framework quit");
     }
-    /*
+
     protected void takeScreenshot(String testName) {
         File scrFile = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.FILE);
         String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
@@ -43,6 +54,7 @@ public class BaseTests {
         }
     }
 
-     */
+
 
 }
+

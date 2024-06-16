@@ -11,6 +11,7 @@ public class BasePage {
     protected WebDriver driver;
     private TestPropManager testPropManager = TestPropManager.getInstance();
     protected PageManager pageManager = PageManager.getInstance();
+    protected DriverManager driverManager = DriverManager.getInstance();
     public BasePage() {
         driver = DriverManager.getInstance().getDriver();
         driver.get(testPropManager.getProperty(PropConst.LAMDA_URL));
