@@ -4,6 +4,8 @@ package ru.appline.framework.managers;
 import ru.appline.utils.PropConst;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -41,11 +43,17 @@ public class DriverManager {
     }
     public void switchWindow() {
         Set<String> allTabs = driver.getWindowHandles();
-        for (String tab : allTabs) {
-            if (!tab.equals(driver.getWindowHandle())) {
-                driver.switchTo().window(tab);
-                break;
-            }
+        List<String> tabList = new ArrayList<>(allTabs);
+
+        // Определение текущего окна
+        String currentWindow = driver.getWindowHandle();
+        int currentIndex = tabList.indexOf(currentWindow);
+
+        // Определение следующего окна
+        if (tabList.size() > 1) {
+            int nextIndex = (currentIndex + 1) % tabList.size();
+            String nextWindow = tabList.get(nextIndex);
+            driver.switchTo().window(nextWindow);
         }
     }
     public int seeAllPages(){

@@ -6,6 +6,7 @@ import ru.appline.framework.pages.task2.FirstPage2;
 import ru.appline.framework.pages.task2.ShedulePage;
 import ru.appline.framework.pages.task3.FirstPage3;
 import ru.appline.framework.pages.task3.LaptopsPage;
+import ru.appline.framework.pages.task4.*;
 
 
 public class PageManager {
@@ -24,6 +25,15 @@ public class PageManager {
 
     private LaptopsPage laptopsPage;
 
+    private FirstPage4 firstPage4;
+
+    private RatingsPage ratingsPage;
+
+    private RatingsScorePage ratingsScorePage;
+
+    private SchoolClass9Page schoolClass9Page;
+
+    private ReviewsPage reviewsPage;
 
 
 
@@ -77,6 +87,41 @@ public class PageManager {
             laptopsPage = new LaptopsPage();
         }
         return laptopsPage;
+    }
+
+    public FirstPage4 getFirstPage4(){
+        if (firstPage4 == null) {
+            firstPage4 = new FirstPage4();
+        }
+        return firstPage4;
+    }
+
+    public RatingsPage getRatingsPage(){
+        if (ratingsPage == null) {
+            ratingsPage = new RatingsPage();
+        }
+        return ratingsPage;
+    }
+
+    public RatingsScorePage getRatingsScorePage(){
+        if (ratingsScorePage == null) {
+            ratingsScorePage = new RatingsScorePage();
+        }
+        return ratingsScorePage;
+    }
+
+    public SchoolClass9Page getSchoolClass9Page(){
+        if (schoolClass9Page == null) {
+            schoolClass9Page = new SchoolClass9Page();
+        }
+        return schoolClass9Page;
+    }
+
+    public ReviewsPage getReviewsPage(){
+        if (reviewsPage == null) {
+            reviewsPage = new ReviewsPage();
+        }
+        return reviewsPage;
     }
 
 }

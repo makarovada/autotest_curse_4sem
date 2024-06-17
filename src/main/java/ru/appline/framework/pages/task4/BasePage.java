@@ -25,7 +25,7 @@ public class BasePage {
 
     public BasePage() {
         driver = DriverManager.getInstance().getDriver();
-        //driver.get(testPropManager.getProperty(PropConst.YANDEX_URL));
+        //driver.get(testPropManager.getProperty(PropConst.LABIRINT_URL));
         PageFactory.initElements(driver, this);
     }
 

@@ -1,10 +1,10 @@
 package ru.appline.framework.pages.task3;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import ru.appline.framework.pages.task2.ShedulePage;
 import ru.appline.utils.PropConst;
 
 public class FirstPage3 extends BasePage{
@@ -26,12 +26,15 @@ public class FirstPage3 extends BasePage{
     @FindBy(xpath = "//h1[@class = '_3lpeU _6tyDq _1ea6I _2Imo_']")
     private WebElement laptopsTitle;
 
+
+
     public void loadFirstPage() {
         driverManager.getDriver().get(testPropManager.getProperty(PropConst.YANDEX_URL));
     }
 
-    //@Step("Нажатие на кнопку Игровые телефоны")
+    @Step("В меню “Каталог” выбрать категорию: Ноутбуки и компьютеры -> Ноутбуки и планшеты -> Ноутбуки")
     public LaptopsPage clickOnLaptops() throws InterruptedException {
+
         Thread.sleep(15000); //на капчу
         catalogButton.click();
         Thread.sleep(2000);

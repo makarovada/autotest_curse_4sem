@@ -21,7 +21,7 @@
         <selenium-java.version>4.16.1</selenium-java.version>
         <junit.version>4.13.2</junit.version>
         <allure-junit4.version>2.21.0</allure-junit4.version>
-        <aspectj.version>1.9.7</aspectj.version>
+        <aspectj.version>1.9.22</aspectj.version>
     </properties>
 
     <dependencies>
@@ -112,7 +112,6 @@
             <version>4.13.2</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -135,7 +134,7 @@
                     <skipTests>false</skipTests>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <include>**/*Test*.java</include>
+                        <include>**/*Test.java</include>
                     </includes>
                     <argLine>
                         -Dfile.encoding=${encoding.type}
@@ -144,7 +143,7 @@
                     <properties>
                         <property>
                             <name>listener</name>
-                            <value>org.example.appline.framework.utils.AllureListener</value>
+                            <value>ru.appline.utils.MyAllureListener</value>
                         </property>
                     </properties>
                     <systemPropertyVariables>

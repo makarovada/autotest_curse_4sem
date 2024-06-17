@@ -27,7 +27,7 @@ public class FirstTest extends BaseTests {
         pageManager.getFirstPage2()
                 .clickOnSchedule()
                 .clickOnLookOnWeb()
-                .SelectGroup();
+                .selectGroup();
 
 
     }

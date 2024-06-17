@@ -21,7 +21,7 @@ import java.util.Date;
 public class BaseTests {
     protected DriverManager driverManager = DriverManager.getInstance();
     protected static PageManager pageManager = PageManager.getInstance();
-    private static final Logger logger = LogManager.getLogger(task1.BaseTests.class);
+    private static final Logger logger = LogManager.getLogger(BaseTests.class);
 
     @BeforeClass
     public static void beforeClass() {

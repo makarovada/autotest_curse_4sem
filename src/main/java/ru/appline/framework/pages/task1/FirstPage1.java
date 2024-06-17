@@ -1,5 +1,6 @@
 package ru.appline.framework.pages.task1;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -28,22 +29,25 @@ public class FirstPage1 extends BasePage {
     private WebElement newCheckbox;
 
 
-
+    @Step("Проверить, что присутствует текст: “5 of 5 remaining”")
     public FirstPage1 getUpText() {
         Assert.assertEquals("Не тот текст", "5 of 5 remaining", upText.getText());
         return pageManager.getFirstPage1();
     }
 
+    @Step("Проверить, что первый элемент списка не зачеркнут")
     public FirstPage1 getSpanClass(int a) {
         Assert.assertTrue(a + " элемент списка зачеркнут", spans.get(a).isDisplayed() && spans.get(a).getAttribute("class").contains("false"));
         return pageManager.getFirstPage1();
     }
 
+    @Step("Проверка, есть ли у первого элемента галочка")
     public FirstPage1 isCheckboxSelected(int a) {
         Assert.assertFalse("Чекбокс уже выбран", checkboxes.get(a).isSelected());
         return pageManager.getFirstPage1();
     }
 
+    @Step("Поставить галочку у первого элемента")
     public FirstPage1 clickCheckbox(int a) {
         checkboxes.get(a).click();
         Assert.assertTrue(a + " чекбокс не выбран", checkboxes.get(a).isSelected());
@@ -59,6 +63,8 @@ public class FirstPage1 extends BasePage {
         String remainingCountText = upText.getText().split(" ")[0];
         return Integer.parseInt(remainingCountText);
     }
+
+    @Step("Повторить шаги 3, 4 для остальных элементов списка")
     public FirstPage1 clickAllCheckboxes() {
         for (WebElement checkbox : checkboxes) {
             if (!checkbox.isSelected()) {
@@ -72,6 +78,7 @@ public class FirstPage1 extends BasePage {
 
 
 
+    @Step("Добавить новый элемент списка")
     public FirstPage1 addNewElement(){
         String newItemText = "Sixth item";
         addItem(newItemText);

@@ -1,5 +1,6 @@
 package ru.appline.framework.pages.task3;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -22,6 +23,7 @@ public class LaptopsPage extends BasePage{
     private List<WebElement> filterLaptopItems;
 
 
+    @Step("Вывести в лог первые 5 найденных товаров (название, цену и плашку “Уценка” при наличии)")
     public LaptopsPage infoToLogs(){
         logger.info("3 ШАГ ТЕСТ-КЕЙСА");
 
@@ -44,6 +46,7 @@ public class LaptopsPage extends BasePage{
         return pageManager.getLaptopsPage();
     }
 
+    @Step("В меню фильтров \"Состояние товара\" выбрать \"Уценка\"")
     public LaptopsPage selectResale(){
         filterResale.click();
         try {

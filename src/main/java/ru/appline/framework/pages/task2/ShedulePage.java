@@ -1,5 +1,6 @@
 package ru.appline.framework.pages.task2;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -17,8 +18,7 @@ public class ShedulePage extends BasePage{
     private WebElement title;
 
 
-
-
+    @Step("В разделе “Расписания занятий” нажать “Смотрите на сайте”")
     public DMamiPage clickOnLookOnWeb(){
         Assert.assertEquals("Страница расписаний не прогрузилась", "Расписания", title.getText());
         lookOnWeb.click();

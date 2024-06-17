@@ -8,10 +8,9 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-import task3.BaseTests;
 
 public class FirstTest extends BaseTests {
-    private static final Logger logger = LogManager.getLogger(task1.FirstTest.class);
+    private static final Logger logger = LogManager.getLogger(FirstTest.class);
     @Rule
     public TestName testName = new TestName();
 
@@ -22,9 +21,35 @@ public class FirstTest extends BaseTests {
             takeScreenshot(testName.getMethodName());
         }
     };
+
     @Test
-    public void test() throws InterruptedException {
-        ;
+    public void test1() {
+        pageManager.getFirstPage4()
+                .moveToRatings()
+                .moveToRatingsScore()
+                .assertFilter();
+
+
+    }
+
+    @Test
+    public void test2() {
+        pageManager.getFirstPage4()
+                .moveToSchoolClass9()
+                .filterOge()
+                .filterPrice()
+                .clickSubmitButton();
+
+
+    }
+
+    @Test
+    public void test3() {
+        ;pageManager.getFirstPage4()
+                .moveToReviews()
+                .selectSortByAuthor()
+                .inputAuthor()
+                .sortByAuthor();
 
 
     }

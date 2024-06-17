@@ -1,5 +1,6 @@
 package ru.appline.framework.pages.task2;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,7 @@ public class FirstPage2 extends BasePage{
 
 
 
+    @Step("Нажать на кнопку Расписания")
     public ShedulePage clickOnSchedule(){
         Assert.assertEquals("Главная страница не прогрузилась", "Флагман проектного обучения в России", title.getText());
         shedule.click();
