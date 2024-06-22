@@ -3,6 +3,7 @@ package task3;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.OutputType;
@@ -23,22 +24,17 @@ public class BaseTests {
     protected static PageManager pageManager = PageManager.getInstance();
     private static final Logger logger = LogManager.getLogger(BaseTests.class);
 
-    @BeforeClass
-    public static void beforeClass() {
+    @Before
+    public void before() {
         InitManager.initFramework();
+        driverManager.getDriver();
+        logger.info("Driver initialized");
         pageManager.getFirstPage3().loadFirstPage();
-
         logger.info("Тест начат");
     }
 
-    @Before
-    public void setUp() {
-        driverManager.getDriver();
-        logger.info("Driver initialized");
-    }
-
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
         InitManager.quitFramework();
         logger.info("Framework quit");
     }

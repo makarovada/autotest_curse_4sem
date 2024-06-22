@@ -66,10 +66,10 @@ public class FirstPage1 extends BasePage {
 
     @Step("Повторить шаги 3, 4 для остальных элементов списка")
     public FirstPage1 clickAllCheckboxes() {
-        for (WebElement checkbox : checkboxes) {
-            if (!checkbox.isSelected()) {
-                checkbox.click();
-            }
+
+        for(int i = 1; i < checkboxes.size(); i++){
+            getSpanClass(i);
+            clickCheckbox(i);
         }
         int itemCountAfter = pageManager.getFirstPage1().getRemainingCount();
         Assert.assertEquals("Отображаемое число оставшихся элементов не уменьшилось до 0!", 0, itemCountAfter);
@@ -84,9 +84,10 @@ public class FirstPage1 extends BasePage {
         addItem(newItemText);
         checkboxes.add(newCheckbox);
         spans.add(newSpan);
-        getSpanClass(spans.size()-1);
-        clickCheckbox(checkboxes.size()-1);
-        Assert.assertTrue("Новый чекбокс не выбран", checkboxes.get(checkboxes.size()-1).isSelected());
+        int id = spans.size()-1;
+        getSpanClass(id);
+        clickCheckbox(id);
+        Assert.assertTrue("Добавленный элемент списка не зачеркнут.", spans.get(id).isDisplayed() && spans.get(id).getAttribute("class").contains("true"));
         return pageManager.getFirstPage1();
     }
 

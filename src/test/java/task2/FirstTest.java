@@ -21,13 +21,13 @@ public class FirstTest extends BaseTests {
         }
     };
 
-
     @Test
     public void test() {
         pageManager.getFirstPage2()
                 .clickOnSchedule()
                 .clickOnLookOnWeb()
-                .selectGroup();
+                .selectGroup()
+                .checkOfColor();
 
 
     }

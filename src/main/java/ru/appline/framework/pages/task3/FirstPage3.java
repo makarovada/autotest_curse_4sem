@@ -54,7 +54,5 @@ public class FirstPage3 extends BasePage{
         Assert.assertEquals("Страница 'Ноутбуки' не открылась ", "Ноутбуки", laptopsTitle.getText());
         return pageManager.getLaptopsPage();
     }
-
-
 }
 

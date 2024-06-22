@@ -33,9 +33,6 @@ public class RatingsScorePage extends BasePage {
         return pageManager.getRatingsScorePage();
     }
 
-
-
-
 }
 
 

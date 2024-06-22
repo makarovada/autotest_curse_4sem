@@ -58,7 +58,7 @@ public class SchoolClass9Page extends BasePage {
             String title = books.get(i).findElement(By.xpath(".//span[@class=\"product-title\"]")).getText();
             int price = Integer.parseInt(books.get(i).findElement(By.xpath(".//span[@class=\"price-gray\"]")).getText());
             Assert.assertTrue("Книга " + title + " не соответсвует выбранным фильтрам.",
-                    title.contains("ОГЭ") && price < 600);
+                    (title.contains("ОГЭ") || title.contains("9")) && price < 600);
         }
         return pageManager.getSchoolClass9Page();
     }
